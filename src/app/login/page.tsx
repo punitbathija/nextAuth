@@ -39,51 +39,53 @@ const page = () => {
   }, [user]);
 
   return (
-    <div className="flex flex-col justify-center align-middle items-center min-h-screen m-auto border-2 border-dotted">
-      <h1 className="text-2xl my-4">{loading ? "Loading..." : "Log in!"}</h1>
-      <label htmlFor="email">
-        Email
+    <div className="">
+      <div className="flex flex-col justify-center align-middle items-center min-h-screen m-auto border-2 border-dotted">
+        <h1 className="text-2xl my-4">{loading ? "Loading..." : "Log in!"}</h1>
+        <label htmlFor="email">
+          Email
+          <br />
+          <input
+            type="email"
+            placeholder="enter a valid email address"
+            className="outline-none text-black rounded-xl p-2"
+            onChange={(e) =>
+              setUser({
+                ...user,
+                email: e.target.value,
+              })
+            }
+          />
+        </label>
         <br />
-        <input
-          type="email"
-          placeholder="enter a valid email address"
-          className="outline-none text-black rounded-xl p-2"
-          onChange={(e) =>
-            setUser({
-              ...user,
-              email: e.target.value,
-            })
-          }
-        />
-      </label>
-      <br />
-      <br />
-      <label htmlFor="password">
-        Password
         <br />
-        <input
-          type="password"
-          placeholder="enter a valid password"
-          className="outline-none text-black rounded-xl p-2"
-          onChange={(e) =>
-            setUser({
-              ...user,
-              password: e.target.value,
-            })
-          }
-        />
-      </label>
-      <br />
-      <button
-        className="border-2 border-white p-2 hover:bg-white hover:scale-115 hover:text-black hover:border-2 hover:border-l-stone-400  hover:font-bold"
-        onClick={onLogin}
-      >
-        {buttonDisabled ? "Invalid Details" : "Log in"}
-      </button>
-      <br />
-      <small>
-        Not registered? <Link href="/signup">Register</Link>
-      </small>
+        <label htmlFor="password">
+          Password
+          <br />
+          <input
+            type="password"
+            placeholder="enter a valid password"
+            className="outline-none text-black rounded-xl p-2"
+            onChange={(e) =>
+              setUser({
+                ...user,
+                password: e.target.value,
+              })
+            }
+          />
+        </label>
+        <br />
+        <button
+          className="border-2 border-white p-2 hover:bg-white hover:scale-115 hover:text-black hover:border-2 hover:border-l-stone-400  hover:font-bold"
+          onClick={onLogin}
+        >
+          {buttonDisabled ? "Invalid Details" : "Log in"}
+        </button>
+        <br />
+        <small>
+          Not registered? <Link href="/signup">Register</Link>
+        </small>
+      </div>
     </div>
   );
 };
